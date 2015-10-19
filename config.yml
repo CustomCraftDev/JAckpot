@@ -1,0 +1,108 @@
+settings:
+  tax_percentage:
+    value: 0
+    info: 'tax will be taken from the jackpot'
+    info-bypasspermission: 'jackpot.tax-bypass'
+  min_deposit:
+    value: 0
+    info: 'minimal value, players can deposit (non-negative only, less than max_deposit and not greater than 9223372036854775806)'
+    info-bypasspermission: 'jackpot.min-bypass'
+  max_deposit:
+    value: 9223372036854775806
+    info: 'maximal value, players can deposit (non-negative only, greater than min_deposit and not greater than 9223372036854775806)'
+    info-bypasspermission: 'jackpot.max-bypass'
+  round_time:
+    value: 90
+    info: 'countdown time in seconds, after first deposit (non-negative only)'
+  multiple_bids:
+    value: false
+    info: 'boolean value, allows players to deposit money multiple times'
+    info-bypasspermission: 'jackpot.mult-bypass'
+  play_soundeffects:
+    value: true
+    info: 'play soundeffects at specific events ...'
+    countdown: 'WOOD_CLICK'
+    round_start: 'FIREWORK_BLAST'
+    round_end: 'LEVEL_UP'
+    round_cancel: 'EXPLODE'
+
+info-permissions:
+  - 'jackpot.cmd.info = Lets you use /jackpot info'
+  - 'jackpot.cmd.info.all = Lets you use /jackpot info all'
+  - 'jackpot.cmd.deposit = Lets you use /jackpot deposit'
+  - 'jackpot.cmd.deposit.all = Lets you use /jackpot deposit all'
+  - 'jackpot.cmd.stats = Lets you use /jackpot stats'
+  - 'jackpot.cmd.stats.others = Lets you use /jackpot stats [player]'
+  - 'jackpot.cmd.ignore = Lets you use /jackpot ignore'
+  - 'jackpot.cmd.reload = Lets you use /jackpot reload'
+  - 'jackpot.cmd.cancel = Lets you use /jackpot cancel'
+  - 'jackpot.cmd.reset = Lets you use /jackpot reset'
+  - 'jackpot.cmd.disable = Lets you use /jackpot disable'
+  - 'jackpot.cmd.help = Lets you view the /jackpot command help list'
+  - ' '
+  - 'jackpot.tax-bypass = Lets you bypass the tax subtraction'
+  - 'jackpot.mult-bypass = Lets you bypass the multiple bid check'
+  - 'jackpot.min-bypass = Lets you bypass the min money check'
+  - 'jackpot.max-bypass = Lets you bypass the max money check ( but not the long overflow check)'
+  
+messages: 
+  prefix: '&a&l[&r&7Jackpot&a&l]&r '
+  no_permission: '&cInsufficient permissions!'
+  player_not_online: '&a<Player> is currently not Online.&r'
+  reload_config: '&cConfig was reloaded'
+  reset_config: '&cConfig was reset'
+  vault_economy_missing: 'Vault could not be found / Vault found no Economy Hook'
+  database_missing: 'Could not connect to Database.'
+  disable_plugin: 'Plugin was disabled by <Trigger>.'
+  console_not_allowed: 'Ingame only ...'
+  ignore_true: '&bIgnore Messages: &ctrue'
+  ignore_false: '&bIgnore Messages: &afalse'
+  help:
+    - ' '
+    - '&aJackpot plugin commands:'
+    - ' &7aliases: /jackpot, /jack, /j'
+    - ' &7-----------------------------------'
+    - ' /jackpot info [all]'
+    - ' /jackpot deposit <money> | [all]'
+    - ' /jackpot ignore'
+    - ' /jackpot stats [player]'
+    - ' &7-----------------------------------'
+    - ' /jackpot start &7- &aStarts a Round'
+    - ' /jackpot cancel &7- &aCancels a Round'
+    - ' /jackpot reload &7- &aReloads the config.yml'
+    - ' /jackpot reset &7- &aResets the config.yml'
+    - ' /jackpot disable &7- &aDisables the Plugin'
+    - ' &7-----------------------------------'
+    - ' &7v2.6 - made by undeaD_D - animes4me.net'
+    - ' '
+  
+  round:
+    start: '&bA &a<Time> seconds&b long game has been started.'  
+    countdown: '&a<Time> seconds&b until the end of the game!'
+    canceled: '&bGame has been cancelled!'
+    not_active: '&cThere is no active game.'
+    is_active: '&cThe Game already started.'
+    won_global: '&a<Winner>&b has won the game, he earned &a$<Jackpot>&b!'
+    won_private: '&bYou &awon&b the &a$<Jackpot>&b Jackpot!'
+
+  bid:
+    global: '&a<Player>&b has deposited &a$<Deposit>&b. Current jackpot is &a$<Jackpot>&b'
+    private: '&bYour new chance is &a<Chance>%&b'
+    new: '&bSucessful deposit! Your chance to win is &a<Chance>%&b'
+    multiple: '&cYou can not deposit multiple times!'
+    error_min: '&cYou can not deposit less than: &a$<Money>&b!'
+    error_max: '&cYour deposit was set to: &a$<Money>(max)&b!'
+    error_max_multiple: '&cYour bid was canceled. (Long overflow ...)&b!'
+    error_long: '&cPlease insert a valid number!'
+    error_all: '&cError while executing /jackpot deposit all ...'
+    not_enough_money: '&cInsufficient funds, you can only deposit &a$<Money>&b!' 
+  
+  stats:
+    header: '&bStatistics from: &a<Player>&r'
+    line_plus: '&a$<Money>'
+    line_minus: '&c$<Money>'
+  
+  info:
+    players: '&bParticipants: &a<Count> Players&r'
+    money: '&bThe current jackpot is: &a$<Jackpot>&r'
+    chance: '&bYour chance is &a%<Chance>&r.'
