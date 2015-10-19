@@ -1,0 +1,8 @@
+name: Jackpot
+main: net.Animes4Me.Jackpot.Plugin
+version: 2.6
+author: 'undeaD_D'
+commands:
+   jackpot:
+      aliases: [jack, j]
+      description: /jackpot <cmd>
